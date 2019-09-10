@@ -1,0 +1,31 @@
+<div *ngIf="validationReport == null">
+  <p>Select a file to upload</p>
+  <label class="btn btn-default">
+    <input type="file" (change)="uploadFile($event)">
+  </label>
+</div>
+
+<div *ngIf="showError">
+  Unable to parse provided customer statement file.
+</div>
+
+<div *ngIf="showReport()">
+  <h3>Validation report for {{validationReport.fileName}}</h3>
+
+  <div *ngIf="uploadSuccessful()">
+    Upload succesful!
+  </div>
+
+  <div *ngIf="!uploadSuccessful()">
+    <p>Faulty customer statements:</p>
+
+    <table>
+      <thead><tr><th>Reference</th><th>Description</th></tr></thead>
+      <tbody *ngFor="let fault of validationReport.faultyStatements">
+        <tr><td>{{fault.transactionReference}}</td><td>{{fault.description}}</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<button (click)="resetForm()">Reset form</button>

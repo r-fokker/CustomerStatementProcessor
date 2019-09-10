@@ -1,0 +1,7 @@
+Om de CustomerStatementProcessor applicatie te draaien is het voldoende om bc.sh te draaien in de CustomerStatementProcessor folder.
+Dit gaat er wel vanuit dat er een Docker installatie aanwezig is.
+
+Het frontend project kun je helaas aleen draaien via een "npm install" en dan een "ng serve". Dit is verder niet gecontaineriseerd, opgemaakt of geminificeerd.
+
+Rolf Fokker
+rolf.fokker.bf@gmail.com

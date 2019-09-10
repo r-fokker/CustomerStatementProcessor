@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  rabo-app:
+    image: rabo:latest
+    hostname: app-server
+    ports:
+      - 8080:8080
+    networks:
+      - rabo-net
+
+  customer-statement-db:
+    image: postgres:latest
+    hostname: customer-statement-db
+    ports:
+      - 5432:5432
+    networks:
+      - rabo-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  rabo-net:
+    external: true

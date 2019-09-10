@@ -1,0 +1,1 @@
+docker run --name customer-statement-db -e POSTGRES_PASSWORD=password -p 5432:5432 postgres
